@@ -1,0 +1,332 @@
+/* --- CSS Variables & Global Reset --- */
+:root {
+    --bg-main: #020b39;
+    --bg-card: #1757a5;
+    --text-primary: #ffffff;
+    --text-muted: #ffffff;
+    --border-color: #000000;
+    --brand-primary: #175260;
+    
+    /* Variabel Khusus Todo App (Light Mode) */
+    --todo-bg-normal: #f9fafb;
+    --todo-bg-done: #f0fdf4;
+    --todo-border-done: #bbf7d0;
+}
+
+/* Otomatis beralih ke warna ini jika class "dark" aktif di tag <body> */
+.dark {
+    --bg-main: #111827;
+    --bg-card: #1f2937;
+    --text-primary: #f3f4f6;
+    --text-muted: #9ca3af;
+    --border-color: #374151;
+    
+    /* Variabel Khusus Todo App (Dark Mode) */
+    --todo-bg-normal: #374151;
+    --todo-bg-done: #14532d;
+    --todo-border-done: #166534;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-main);
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1f2937; /* Tetap gelap di kedua mode */
+    padding: 1rem 10%;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-logo {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--brand-primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: #f3f4f6;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #9ca3af;
+}
+
+.btn-theme {
+    background-color: #374151;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-theme:hover {
+    background-color: #4b5563;
+}
+
+/* --- Layout Main Container --- */
+.container {
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem;
+    background-color: var(--bg-card);
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .hero-section {
+        flex-direction: row;
+    }
+}
+
+.profile-img {
+    width: 11rem;
+    height: 11rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--brand-primary);
+}
+
+.hero-text h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* --- General Typography Section --- */
+article h2, section h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-bottom: 2px solid var(--brand-primary);
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+/* --- Table Styling --- */
+.edu-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: var(--bg-card);
+}
+
+.edu-table th, .edu-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.edu-table th {
+    background-color: var(--brand-primary);
+    color: white;
+}
+
+/* --- Contact Form Styling --- */
+.contact-form {
+    background-color: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 0.625rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    border-radius: 0.5rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: var(--brand-primary);
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: var(--brand-primary);
+    color: white;
+    padding: 0.625rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-submit:hover {
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   KUSTOM PURE CSS - TODO LIST (SINKRON DENGAN LIGHT & DARK MODE)
+   ========================================================================== */
+.todo-wrapper {
+    max-width: 28rem;
+    margin: 3rem auto 0 auto;
+    padding: 1.5rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.todo-wrapper h2 {
+    font-size: 1.5rem;
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.todo-input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.todo-input-group input {
+    flex: 1;
+    padding: 0.625rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+.todo-input-group input:focus {
+    border-color: var(--brand-primary);
+}
+
+.todo-input-group button {
+    background-color: var(--brand-primary);
+    color: white;
+    padding: 0.625rem 1.25rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    width: auto;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.todo-input-group button:hover {
+    opacity: 0.9;
+}
+
+#todo-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: left;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.todo-item.normal {
+    background-color: var(--todo-bg-normal);
+}
+
+.todo-item.completed {
+    background-color: var(--todo-bg-done);
+    border-color: var(--todo-border-done);
+}
+
+.todo-text {
+    flex: 1;
+    cursor: pointer;
+    user-select: none;
+}
+
+.todo-text.done {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.todo-delete-btn {
+    background: none;
+    border: none;
+    color: #ef4444;
+    font-size: 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: auto;
+    margin-left: 0.5rem;
+    transition: color 0.2s;
+}
+
+.todo-delete-btn:hover {
+    color: #b91c1c;
+}
+
+/* --- Footer --- */
+.main-footer {
+    text-align: center;
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 3rem;
+}
+
+.main-footer p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
