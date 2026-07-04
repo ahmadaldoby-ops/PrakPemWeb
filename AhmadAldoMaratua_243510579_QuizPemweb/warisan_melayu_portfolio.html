@@ -1,0 +1,877 @@
+    <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warisan Melayu – Melestarikan Budaya, Mengenalkan Identitas</title>
+    <meta name="description" content="Museum digital kebudayaan Melayu Nusantara. Jelajahi warisan busana, kuliner, arsitektur, tarian, musik, dan sastra Melayu dari Riau, Kepri, Jambi, Sumatera Utara, hingga Kalimantan.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ============================================================
+         TOAST NOTIFICATION
+         ============================================================ -->
+    <div id="toast" class="toast success" style="display:none;" role="alert" aria-live="polite">
+        <i class="toast-icon fa-solid fa-circle-check"></i>
+        <p class="toast-message"></p>
+    </div>
+
+    <!-- ============================================================
+         NAVBAR
+         ============================================================ -->
+    <nav id="navbar" class="navbar">
+        <div class="container">
+            <!-- Logo -->
+            <a href="#" class="nav-logo" aria-label="Warisan Melayu Beranda">
+                <div class="nav-logo-icon">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+                <div>
+                    <span class="nav-logo-text">Warisan Melayu</span>
+                    <span class="nav-logo-sub">Melestarikan Identitas</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="nav-links" role="navigation" aria-label="Navigasi Utama">
+                <a href="#"       class="nav-link">Beranda</a>
+                <a href="#tentang" class="nav-link">Tentang</a>
+                <a href="#peta"    class="nav-link">Peta Budaya</a>
+                <a href="#budaya"  class="nav-link">Budaya</a>
+                <a href="#galeri"  class="nav-link">Galeri</a>
+                <a href="#artikel" class="nav-link">Artikel</a>
+                <a href="#event"   class="nav-link">Event</a>
+                <a href="#kontak"  class="nav-link">Kontak</a>
+            </div>
+
+            <!-- Desktop Utility Controls -->
+            <div class="nav-utils">
+                <!-- Bookmark Filter Toggle -->
+                <button class="nav-icon-btn bookmark-filter-btn" title="Tampilkan Artikel Tersimpan" aria-label="Filter Bookmark">
+                    <i class="fa-solid fa-bookmark"></i>
+                    <span class="bookmark-count-badge bookmark-badge hidden" aria-live="polite">0</span>
+                </button>
+
+                <!-- Dark Mode Toggle -->
+                <button class="nav-icon-btn dark-toggle" title="Ganti Tema" aria-label="Ganti Mode Gelap/Terang">
+                    <i class="dark-mode-icon fa-solid fa-moon"></i>
+                </button>
+
+                <a href="#budaya" class="btn-explore-nav">Jelajahi Budaya</a>
+            </div>
+
+            <!-- Mobile Controls -->
+            <div class="nav-mobile-controls">
+                <button class="mobile-btn dark-toggle" aria-label="Ganti Tema">
+                    <i class="dark-mode-icon fa-solid fa-moon"></i>
+                </button>
+                <button class="mobile-btn" id="mobile-menu-btn" aria-label="Toggle Menu" aria-expanded="false">
+                    <i class="fa-solid fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="mobile-menu" role="navigation" aria-label="Menu Mobile">
+            <a href="#"        class="mobile-menu-link">Beranda</a>
+            <a href="#tentang" class="mobile-menu-link">Tentang</a>
+            <a href="#peta"    class="mobile-menu-link">Peta Budaya</a>
+            <a href="#budaya"  class="mobile-menu-link">Budaya</a>
+            <a href="#galeri"  class="mobile-menu-link">Galeri</a>
+            <a href="#artikel" class="mobile-menu-link">Artikel</a>
+            <a href="#event"   class="mobile-menu-link">Event</a>
+            <a href="#kontak"  class="mobile-menu-link">Kontak</a>
+            <div class="mobile-menu-footer">
+                <button class="mobile-bookmark-btn" id="mobile-bookmark-btn">
+                    <i class="fa-solid fa-bookmark"></i>
+                    <span>Bookmark (<span class="bookmark-count-badge">0</span>)</span>
+                </button>
+                <a href="#budaya" class="mobile-menu-link btn-explore-nav" style="padding:0.5rem 1rem;">Jelajahi</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+         HERO SECTION
+         ============================================================ -->
+    <section id="beranda" class="hero" aria-label="Hero Warisan Melayu">
+        <!-- Wave Divider -->
+        <div class="hero-wave" aria-hidden="true">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0 C150,90 350,120 600,100 C850,80 1050,110 1200,90 L1200,120 L0,120 Z"></path>
+            </svg>
+        </div>
+
+        <!-- Ornament overlay -->
+        <div class="hero-ornament" aria-hidden="true">
+            <div class="pucuk-rebung-pattern" style="width:100%;height:100%;"></div>
+        </div>
+
+        <!-- Float Mandau Shield (left) -->
+        <div class="hero-float-left" aria-hidden="true">
+            <svg width="128" height="256" viewBox="0 0 100 200" fill="none" stroke="currentColor">
+                <path d="M50 0 C 10 30, 10 170, 50 200 C 90 170, 90 30, 50 0 Z" stroke-width="2"/>
+                <path d="M50 0 L50 200 M0 100 L100 100 M20 50 L80 150 M80 50 L20 150" stroke-width="1.5"/>
+                <circle cx="50" cy="100" r="12" stroke-width="2"/>
+            </svg>
+        </div>
+
+        <!-- Float Gong (right) -->
+        <div class="hero-float-right" aria-hidden="true">
+            <svg width="160" height="160" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+                <circle cx="50" cy="50" r="45" stroke-width="3"/>
+                <circle cx="50" cy="50" r="35" stroke-width="1" stroke-dasharray="4"/>
+                <circle cx="50" cy="50" r="10" fill="currentColor"/>
+                <circle cx="50" cy="50" r="15" stroke-width="2"/>
+            </svg>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <!-- Badge -->
+            <div class="hero-badge" aria-label="Museum Digital Kebudayaan">
+                <span class="hero-badge-dot"></span>
+                <span class="hero-badge-text">Museum Digital Kebudayaan</span>
+            </div>
+
+            <h1 class="hero-title">
+                Warisan <span>Melayu</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                "Menjelajahi Keindahan Budaya Melayu dalam Satu Sentuhan. Menelusuri sejarah kejayaan peradaban bahari nusantara."
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#budaya" class="btn btn-primary">
+                    <i class="fa-solid fa-compass"></i> Jelajahi Budaya
+                </a>
+                <a href="#galeri" class="btn btn-secondary">
+                    <i class="fa-solid fa-images"></i> Lihat Galeri
+                </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="hero-stats" aria-label="Statistik Warisan Melayu">
+                <div>
+                    <span class="hero-stat-num">5+</span>
+                    <span class="hero-stat-label">Wilayah Warisan</span>
+                </div>
+                <div>
+                    <span class="hero-stat-num">30+</span>
+                    <span class="hero-stat-label">Entitas Budaya</span>
+                </div>
+                <div>
+                    <span class="hero-stat-num">100%</span>
+                    <span class="hero-stat-label">Nilai Filosofis</span>
+                </div>
+                <div>
+                    <span class="hero-stat-num">Digital</span>
+                    <span class="hero-stat-label">Dokumentasi</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         TENTANG SECTION
+         ============================================================ -->
+    <section id="tentang" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Identitas &amp; Sejarah</span>
+                <h2 class="section-title">Asal-Usul Budaya Melayu</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="tentang-grid">
+                <!-- Image Column -->
+                <div class="tentang-img-wrapper">
+                    <div class="tentang-img-glow"></div>
+                    <div class="tentang-img-card">
+                        <img src="https://images.unsplash.com/photo-1596422846543-75c6fc18a513?q=80&w=800&auto=format&fit=crop"
+                             alt="Kerajaan Melayu Heritage">
+                        <div class="tentang-quote-card glass-panel">
+                            <p>"Adat bersendi Syarak, Syarak bersendi Kitabullah."</p>
+                            <span>— Falsafah Hidup Melayu</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Column -->
+                <div class="tentang-text">
+                    <h3>Melayu Nusantara: Jantung Peradaban Bahari</h3>
+                    <p>
+                        Budaya Melayu merupakan salah satu pilar kebudayaan terbesar di Nusantara yang memiliki sebaran sangat luas dari pesisir Sumatra, Kepulauan Riau, Kalimantan, Semenanjung Malaya, hingga wilayah selatan Filipina. Budaya ini tumbuh subur melalui hubungan perdagangan bahari internasional dan akulturasi nilai-nilai luhur dari peradaban Islam, Hindu-Buddha, dan pengaruh lokal yang kuat.
+                    </p>
+                    <p>
+                        Keunikan kebudayaan Melayu tercermin dari keluwesan tutur kata bahasa Melayu (yang menjadi cikal bakal Bahasa Indonesia), kemegahan busana tenun songket, keindahan arsitektur atap lipat kajang, hingga heroisme tarian zapin yang dinamis. Platform ini dirancang untuk mendokumentasikan nilai-nilai luhur tersebut sebagai pelestarian digital yang abadi bagi generasi muda.
+                    </p>
+
+                    <div class="tentang-features">
+                        <div class="tentang-feature green">
+                            <i class="fa-solid fa-leaf fa-xl"></i>
+                            <span>Harmoni Alam</span>
+                        </div>
+                        <div class="tentang-feature red">
+                            <i class="fa-solid fa-shield-halved fa-xl"></i>
+                            <span>Kehormatan Adat</span>
+                        </div>
+                        <div class="tentang-feature gold">
+                            <i class="fa-solid fa-crown fa-xl"></i>
+                            <span>Keagungan Tradisi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="tentang-timeline">
+                <h3>Garis Waktu Peradaban Kerajaan Melayu</h3>
+                <div class="timeline-grid">
+                    <div class="timeline-node">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-tag">Abad ke-7</span>
+                        <h4>Kerajaan Sriwijaya</h4>
+                        <p>Pusat kedatuan bahari Buddha terbesar di Sumatra. Menjadi awal tumbuhnya pengaruh bahasa Melayu Kuno sebagai <em>lingua franca</em> perdagangan.</p>
+                    </div>
+                    <div class="timeline-node">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-tag">Abad ke-15</span>
+                        <h4>Kesultanan Melaka</h4>
+                        <p>Zaman keemasan peradaban Melayu Islam. Menetapkan standar kebudayaan, hukum adat, pakaian baju kurung, serta sastra Melayu klasik.</p>
+                    </div>
+                    <div class="timeline-node">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-tag">Abad ke-18</span>
+                        <h4>Siak Sri Indrapura &amp; Kepulauan Riau</h4>
+                        <p>Masa kejayaan kesultanan di Riau daratan dan kepulauan. Melahirkan karya sastra fenomenal Gurindam 12 oleh Raja Ali Haji.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PETA BUDAYA SECTION
+         ============================================================ -->
+    <section id="peta" class="section peta-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Penjelajahan Geografis</span>
+                <h2 class="section-title">Peta Persebaran Melayu Nusantara</h2>
+                <p>Klik wilayah pada representasi pulau Sumatra dan sekitarnya di bawah ini untuk melihat fokus warisan kebudayaan di provinsi tersebut!</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="peta-grid">
+                <!-- SVG Interactive Map -->
+                <div class="peta-map-card">
+                    <div class="peta-svg-wrapper">
+                        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg"
+                             role="img" aria-label="Peta Interaktif Persebaran Melayu">
+
+                            <!-- Grid lines -->
+                            <path d="M10 50 L390 50 M10 150 L390 150 M10 250 L390 250"
+                                  stroke="currentColor" stroke-opacity="0.1" stroke-dasharray="4 4"/>
+
+                            <!-- Province: Riau -->
+                            <g role="button" aria-label="Riau" tabindex="0">
+                                <path class="province-path active" data-province="riau"
+                                      d="M110 90 L180 110 L210 135 L170 160 L100 130 Z"/>
+                                <text class="province-text active" data-province="riau" x="145" y="130">RIAU</text>
+                            </g>
+
+                            <!-- Province: Kepulauan Riau -->
+                            <g role="button" aria-label="Kepulauan Riau" tabindex="0">
+                                <circle class="province-path" data-province="kepri" cx="260" cy="110" r="15"/>
+                                <circle class="province-path" data-province="kepri" cx="290" cy="130" r="10"/>
+                                <circle class="province-path" data-province="kepri" cx="275" cy="80"  r="8"/>
+                                <text class="province-text" data-province="kepri" x="250" y="113">KEPRI</text>
+                            </g>
+
+                            <!-- Province: Jambi -->
+                            <g role="button" aria-label="Jambi" tabindex="0">
+                                <path class="province-path" data-province="jambi"
+                                      d="M165 162 L225 142 L245 180 L195 200 L155 180 Z"/>
+                                <text class="province-text" data-province="jambi" x="185" y="175">JAMBI</text>
+                            </g>
+
+                            <!-- Province: Sumatera Utara -->
+                            <g role="button" aria-label="Sumatera Utara" tabindex="0">
+                                <path class="province-path" data-province="sumut"
+                                      d="M60 40 L120 75 L105 105 L45 80 Z"/>
+                                <text class="province-text" data-province="sumut" x="70" y="75">SUMUT</text>
+                            </g>
+
+                            <!-- Province: Kalimantan Barat -->
+                            <g role="button" aria-label="Kalimantan Barat" tabindex="0">
+                                <path class="province-path" data-province="kalbar"
+                                      d="M300 160 L350 140 L380 190 L330 210 Z"/>
+                                <text class="province-text" data-province="kalbar" x="325" y="180">KALBAR</text>
+                            </g>
+                        </svg>
+
+                        <!-- Legend -->
+                        <div class="peta-legend" aria-label="Legenda Peta">
+                            <span><span class="legend-dot red"></span> Terpilih</span>
+                            <span><span class="legend-dot amber"></span> Daerah Melayu</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Province Info Panel -->
+                <div class="peta-info-panel">
+                    <div id="peta-info-box" class="peta-info-box glass-panel" aria-live="polite">
+                        <!-- Filled dynamically by script.js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         ENSIKLOPEDI BUDAYA SECTION
+         ============================================================ -->
+    <section id="budaya" class="section budaya-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Etalase Warisan</span>
+                <h2 class="section-title">Ensiklopedi Budaya Melayu</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Search -->
+            <div class="budaya-search-wrap">
+                <span class="search-icon" aria-hidden="true">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input type="search"
+                       id="budaya-search"
+                       class="budaya-search"
+                       placeholder="Cari pakaian adat, makanan khas, rumah adat, tarian..."
+                       aria-label="Pencarian Budaya">
+            </div>
+
+            <!-- Category Filters -->
+            <div class="category-filters" role="group" aria-label="Filter Kategori Budaya">
+                <button class="filter-btn active" data-category="semua">Semua Kategori</button>
+                <button class="filter-btn" data-category="pakaian">
+                    <i class="fa-solid fa-shirt"></i> Pakaian Adat
+                </button>
+                <button class="filter-btn" data-category="makanan">
+                    <i class="fa-solid fa-utensils"></i> Kuliner Khas
+                </button>
+                <button class="filter-btn" data-category="rumah">
+                    <i class="fa-solid fa-house-chimney"></i> Rumah Adat
+                </button>
+                <button class="filter-btn" data-category="senjata">
+                    <i class="fa-solid fa-shield-halved"></i> Senjata Tradisional
+                </button>
+                <button class="filter-btn" data-category="musik">
+                    <i class="fa-solid fa-music"></i> Musik Tradisional
+                </button>
+                <button class="filter-btn" data-category="tari">
+                    <i class="fa-solid fa-person-running"></i> Tarian
+                </button>
+                <button class="filter-btn" data-category="sastra">
+                    <i class="fa-solid fa-book-open"></i> Sastra &amp; Puisi
+                </button>
+            </div>
+
+            <!-- Cards Grid — Populated by JS -->
+            <div id="budaya-grid" class="budaya-grid" aria-live="polite"></div>
+
+            <!-- Empty State -->
+            <div id="budaya-empty" class="empty-state glass-panel" style="display:none;" aria-live="polite">
+                <i class="fa-regular fa-folder-open"></i>
+                <p style="font-size:1.125rem;font-weight:500;margin-bottom:0.25rem;">Hasil tidak ditemukan</p>
+                <p style="font-size:0.875rem;">Coba sesuaikan kata kunci atau kategori filter Anda.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         DETAIL CULTURE MODAL
+         ============================================================ -->
+    <div id="detail-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Detail Budaya">
+        <div class="modal-backdrop"></div>
+        <div class="modal-wrapper">
+            <div class="modal-card">
+                <!-- Close Button -->
+                <button class="modal-close" aria-label="Tutup Modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <!-- Left: Image -->
+                <div class="modal-image">
+                    <img src="" alt="Budaya" loading="lazy">
+                    <div class="modal-image-overlay">
+                        <span class="modal-region"></span>
+                        <h2 class="modal-name"></h2>
+                    </div>
+                </div>
+
+                <!-- Right: Detail -->
+                <div class="modal-body">
+                    <!-- Tabs -->
+                    <div class="modal-tabs" role="tablist">
+                        <button class="modal-tab-btn active" data-tab="deskripsi" role="tab" aria-selected="true">
+                            Sejarah &amp; Makna
+                        </button>
+                        <button class="modal-tab-btn" data-tab="filosofi" role="tab" aria-selected="false">
+                            Filosofi Adat
+                        </button>
+                        <button class="modal-tab-btn" data-tab="fakta" role="tab" aria-selected="false">
+                            Fakta Unik
+                        </button>
+                    </div>
+
+                    <!-- Tab: Deskripsi -->
+                    <div class="modal-tab-panel active" data-panel="deskripsi" role="tabpanel">
+                        <h3 id="tab-desc-h">Sejarah Singkat</h3>
+                        <p id="tab-desc-p1"></p>
+                        <p id="tab-desc-p2" class="quote"></p>
+                    </div>
+
+                    <!-- Tab: Filosofi -->
+                    <div class="modal-tab-panel" data-panel="filosofi" role="tabpanel">
+                        <h3>Makna Filosofi</h3>
+                        <div class="modal-philosophy">
+                            <p id="tab-philo-p"></p>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Fakta -->
+                    <div class="modal-tab-panel" data-panel="fakta" role="tabpanel">
+                        <h3>Did You Know?</h3>
+                        <div class="modal-fact">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <p id="tab-fact-p"></p>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="modal-actions">
+                        <button class="modal-share-btn" aria-label="Bagikan Budaya">
+                            <i class="fa-solid fa-share-nodes"></i> Bagikan Budaya
+                        </button>
+                        <button class="modal-close-btn">Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         GALERI SECTION
+         ============================================================ -->
+    <section id="galeri" class="section galeri-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Visual Heritage</span>
+                <h2 class="section-title">Galeri Nusantara Melayu</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Gallery Tab Filters -->
+            <div class="gallery-tabs" role="group" aria-label="Filter Galeri">
+                <button class="gallery-tab-btn active" data-gallery="semua">Semua</button>
+                <button class="gallery-tab-btn" data-gallery="festival">Festival</button>
+                <button class="gallery-tab-btn" data-gallery="rumah">Arsitektur</button>
+                <button class="gallery-tab-btn" data-gallery="makanan">Makanan</button>
+                <button class="gallery-tab-btn" data-gallery="alam">Alam Melayu</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid">
+                <!-- Item 1 -->
+                <div class="gallery-item" data-categories="semua festival">
+                    <img src="https://images.unsplash.com/photo-1596422846543-75c6fc18a513?q=80&w=600&auto=format&fit=crop"
+                         alt="Festival Tari Melayu" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Festival</span>
+                        <h4>Zapin Kolosal Kepulauan</h4>
+                        <p>Festival seni tahunan melestarikan ritme gerak melayu.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="gallery-item" data-categories="semua rumah">
+                    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=600&auto=format&fit=crop"
+                         alt="Istana Siak Sri Indrapura" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Arsitektur</span>
+                        <h4>Istana Siak Sri Indrapura</h4>
+                        <p>Kemegahan istana Melayu bersanding pengaruh arsitektur Eropa.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="gallery-item" data-categories="semua makanan">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600&auto=format&fit=crop"
+                         alt="Gulai Ikan Patin" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Makanan</span>
+                        <h4>Kelezatan Patin Sungai</h4>
+                        <p>Santapan agung kebanggaan Riau Daratan.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="gallery-item" data-categories="semua alam">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600&auto=format&fit=crop"
+                         alt="Pesisir Selat Malaka" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Alam Melayu</span>
+                        <h4>Pesisir Selat Malaka</h4>
+                        <p>Urat nadi perdagangan bahari dunia di Kepulauan Riau.</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="gallery-item" data-categories="semua festival">
+                    <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?q=80&w=600&auto=format&fit=crop"
+                         alt="Pekan Seni Tari Melayu" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Festival</span>
+                        <h4>Tari Tepak Sirih Pembuka Adat</h4>
+                        <p>Penyambutan mulia tamu agung kerajaan.</p>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="gallery-item" data-categories="semua rumah">
+                    <img src="https://images.unsplash.com/photo-1617135671512-cae5e782ea24?q=80&w=600&auto=format&fit=crop"
+                         alt="Detail Ukiran Melayu" loading="lazy">
+                    <div class="gallery-overlay">
+                        <span>Arsitektur</span>
+                        <h4>Detail Ukiran Selembayung</h4>
+                        <p>Simbolisasi keselarasan hidup manusia dengan sang pencipta.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         ARTIKEL SECTION
+         ============================================================ -->
+    <section id="artikel" class="section artikel-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Wawasan &amp; Literasi</span>
+                <h2 class="section-title">Kabar &amp; Artikel Warisan</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Article Cards Grid — Populated by JS -->
+            <div id="artikel-grid" class="artikel-grid" aria-live="polite"></div>
+
+            <!-- Empty state for bookmarks -->
+            <div id="bookmark-empty" class="bookmark-empty-state" aria-live="polite">
+                <i class="fa-solid fa-bookmark"></i>
+                <p style="font-size:1.125rem;font-weight:500;">Belum ada artikel yang di-bookmark</p>
+                <p style="font-size:0.875rem;margin-top:0.25rem;">Klik tombol bookmark pada artikel untuk menyimpannya di sini.</p>
+                <button id="show-all-articles-btn">Tampilkan Semua Artikel</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         EVENT SECTION
+         ============================================================ -->
+    <section id="event" class="section event-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Agenda Seni</span>
+                <h2 class="section-title">Agenda &amp; Festival Kebudayaan</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="event-timeline">
+                <!-- Event 1 -->
+                <div class="event-item">
+                    <div class="event-dot"></div>
+                    <span class="event-date">AGUSTUS 2026</span>
+                    <h3>Pekan Kebudayaan Melayu Riau</h3>
+                    <p>Pesta rakyat tahunan di Kota Pekanbaru menampilkan pameran kuliner warisan, pawai baju adat melayu kurung, permainan tradisional rakyat, dan sayembara menulis sastra melayu kuno.</p>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="event-item">
+                    <div class="event-dot"></div>
+                    <span class="event-date">OKTOBER 2026</span>
+                    <h3>Festival Zapin Internasional</h3>
+                    <p>Pertemuan sanggar seni tari zapin dari penjuru kepulauan melayu nusantara hingga mancanegara di Tanjungpinang untuk berkolaborasi dan berkompetisi secara harmonis.</p>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="event-item">
+                    <div class="event-dot"></div>
+                    <span class="event-date">DESEMBER 2026</span>
+                    <h3>Pameran Songket &amp; Wastra Nusantara</h3>
+                    <p>Pameran kurasi benang emas songket pusaka berusia ratusan tahun warisan kerajaan Melayu kuno berkolaborasi dengan desainer lokal terkemuka di Istana Maimun, Medan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         QUOTE SECTION
+         ============================================================ -->
+    <section class="quote-section" aria-label="Kutipan Laksamana Hang Tuah">
+        <div class="ornament" aria-hidden="true">
+            <div class="pucuk-rebung-pattern" style="width:100%;height:100%;"></div>
+        </div>
+        <div class="container">
+            <i class="fa-solid fa-quote-left quote-icon" aria-hidden="true"></i>
+            <h2 class="quote-text">"Takkan Melayu Hilang di Bumi"</h2>
+            <div class="quote-divider"></div>
+            <p class="quote-author">— Laksamana Hang Tuah, Kesultanan Melaka</p>
+            <p class="quote-desc">
+                Nasihat leluhur agar senantiasa merawat identitas budaya, menjaga kejujuran di dada, serta menjunjung tinggi marwah bangsa di mana pun kaki berpijak.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ SECTION
+         ============================================================ -->
+    <section class="section faq-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Pertanyaan Umum</span>
+                <h2 class="section-title">FAQ Kebudayaan Melayu</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="faq-list">
+                <!-- FAQ 1 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-btn" data-faq="1" aria-expanded="false">
+                        <span>Apa falsafah hidup terpenting dari kebudayaan Melayu?</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <div class="faq-answer" data-faq="1">
+                        Falsafah terpenting kebudayaan Melayu dirumuskan dalam ungkapan adat: <em>"Adat bersendi Syarak, Syarak bersendi Kitabullah"</em>. Artinya, seluruh tatanan aturan adat istiadat, norma sosial, sanksi, dan pola perilaku harian masyarakat Melayu harus berlandaskan dan tidak boleh bertentangan dengan syariat agama Islam dan Al-Qur'an.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-btn" data-faq="2" aria-expanded="false">
+                        <span>Bagaimana hubungan bahasa Melayu dengan Bahasa Indonesia?</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <div class="faq-answer" data-faq="2">
+                        Bahasa Indonesia secara historis tumbuh dari Bahasa Melayu Riau Tinggi. Melalui peristiwa Sumpah Pemuda tahun 1928, bahasa Melayu dipilih menjadi fondasi bahasa persatuan nasional karena perannya sebagai <em>lingua franca</em> perdagangan bahari di seluruh pelabuhan Nusantara selama berabad-abad dan tata bahasanya yang demokratis serta mudah dipelajari.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-btn" data-faq="3" aria-expanded="false">
+                        <span>Di mana saja wilayah persebaran kebudayaan Melayu di dunia?</span>
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <div class="faq-answer" data-faq="3">
+                        Persebaran budaya Melayu meliputi wilayah geografis Melayu Nusantara: pesisir Sumatra (Riau, Kepri, Jambi, Sumut, Sumsel, Babel), pesisir Kalimantan (Kalbar, Kalteng, Kalsel, Kaltara), Semenanjung Malaya (Malaysia, Singapura), Brunei Darussalam, Thailand Selatan (Pattani), serta Filipina Selatan (Mindanao).
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         KONTAK SECTION
+         ============================================================ -->
+    <section id="kontak" class="section kontak-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Hubungi Kami</span>
+                <h2 class="section-title">Hubungkan Hati Melayu</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="kontak-grid">
+                <!-- Contact Info Cards -->
+                <div class="kontak-info-cards">
+                    <div class="kontak-info-card glass-panel">
+                        <div class="kontak-info-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4>Alamat Sekretariat</h4>
+                            <p>Lembaga Adat Melayu Riau, Jl. Diponegoro No. 39, Pekanbaru, Riau, Indonesia.</p>
+                        </div>
+                    </div>
+
+                    <div class="kontak-info-card glass-panel">
+                        <div class="kontak-info-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Surat Elektronik (Email)</h4>
+                            <p>kontak@warisanmelayu.or.id</p>
+                        </div>
+                    </div>
+
+                    <div class="kontak-info-card glass-panel">
+                        <div class="kontak-info-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>+62 811 7654 321</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="kontak-form-card">
+                    <form id="contact-form" novalidate>
+                        <div class="form-row">
+                            <div>
+                                <label class="form-label" for="form-name">Nama Lengkap *</label>
+                                <input type="text"
+                                       id="form-name"
+                                       class="form-input"
+                                       placeholder="Masukkan nama Anda..."
+                                       required
+                                       autocomplete="name">
+                            </div>
+                            <div>
+                                <label class="form-label" for="form-email">Alamat Email *</label>
+                                <input type="email"
+                                       id="form-email"
+                                       class="form-input"
+                                       placeholder="Masukkan email Anda..."
+                                       required
+                                       autocomplete="email">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="form-subject">Subjek Pesan</label>
+                            <input type="text"
+                                   id="form-subject"
+                                   class="form-input"
+                                   placeholder="Masukkan subjek diskusi...">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="form-message">Isi Pesan / Pertanyaan *</label>
+                            <textarea id="form-message"
+                                      class="form-textarea"
+                                      rows="4"
+                                      placeholder="Tuliskan pesan Anda tentang pelestarian budaya Melayu di sini..."
+                                      required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            Kirim Pesan Adat <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="footer" role="contentinfo">
+        <!-- Top ornament pattern -->
+        <div class="footer-pattern pucuk-rebung-pattern" aria-hidden="true"></div>
+
+        <div class="container" style="position:relative;z-index:10;">
+            <div class="footer-grid">
+                <!-- Branding -->
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo" aria-label="Warisan Melayu">
+                        <div class="nav-logo-icon">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                        <div>
+                            <span class="nav-logo-text">Warisan Melayu</span>
+                            <span class="nav-logo-sub">Melestarikan Identitas</span>
+                        </div>
+                    </a>
+                    <p>
+                        Platform museum digital terintegrasi yang berkomitmen melestarikan identitas, sejarah, dan nilai-nilai luhur kebudayaan Melayu Nusantara bagi generasi penerus peradaban bahari.
+                    </p>
+                </div>
+
+                <!-- Nav Quick Links -->
+                <div class="footer-col">
+                    <h4>Navigasi Portal</h4>
+                    <ul>
+                        <li><a href="#">Beranda Utama</a></li>
+                        <li><a href="#tentang">Sejarah &amp; Identitas</a></li>
+                        <li><a href="#peta">Peta Persebaran Budaya</a></li>
+                        <li><a href="#budaya">Ensiklopedi Budaya</a></li>
+                        <li><a href="#galeri">Galeri Visual</a></li>
+                    </ul>
+                </div>
+
+                <!-- Category Links -->
+                <div class="footer-col">
+                    <h4>Kategori Budaya</h4>
+                    <ul>
+                        <li><a href="#budaya">Busana Tenun &amp; Tanjak</a></li>
+                        <li><a href="#budaya">Kuliner Asam Pedas</a></li>
+                        <li><a href="#budaya">Arsitektur Rumah Selaso</a></li>
+                        <li><a href="#budaya">Kesenian Tari Zapin</a></li>
+                        <li><a href="#budaya">Gurindam &amp; Sastra</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div class="footer-col">
+                    <h4>Media &amp; Komunitas</h4>
+                    <p>Ikuti perkembangan pelestarian kebudayaan Melayu di jejaring sosial kami:</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook Warisan Melayu">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram Warisan Melayu">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube Warisan Melayu">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="TikTok Warisan Melayu">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Warisan Melayu. Seluruh Hak Cipta Dilindungi Undang-Undang.</p>
+                <div class="footer-bottom-right">
+                    <span>Didukung oleh Lembaga Adat Melayu Nusantara</span>
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
